@@ -2,6 +2,7 @@ import pygame as pg
 import sys
 from settings import *
 from map import *
+from player import *
 
 # game initialization
 class Game:
@@ -14,8 +15,10 @@ class Game:
 
     def new_game(self):
         self.map = Map(self)        # Calls Map
+        self.player = Player(self)
 
-    def update(self):               # Updating/display screen refresh rate
+    def update(self):               # Updating Variables
+        self.player.update()
         pg.display.flip()
         self.delta_time = self.clock.tick(FPS)
         pg.display.set_caption(f'{self.clock.get_fps() :.1f}')
@@ -23,6 +26,7 @@ class Game:
     def draw(self):                 # Screen display
         self.screen.fill('black')
         self.map.draw()
+        self.player.draw()
 
     def check_events(self):         # Check inputs / default exit conditions
         for event in pg.event.get():
@@ -30,7 +34,6 @@ class Game:
                 pg.quit()
                 sys.exit()
 
-    
     def run(self):                  # Main Run
         while True:
             self.check_events()

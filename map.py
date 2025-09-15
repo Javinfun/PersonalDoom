@@ -14,7 +14,7 @@ mini_map = [
 ]
 
 class Map:
-    def __init__(self, game) -> None:               # initialization of Map in game
+    def __init__(self, game):               # initialization of Map in game
         self.game = game
         self.mini_map = mini_map
         self.world_map = {}
@@ -28,5 +28,5 @@ class Map:
 
     def draw(self):
                 # Rectangle attrb:(screen, color, pos x-axis, pos y-axis, length, width), thickness
-        [pg.draw.rect(self.game.screen, 'white', (pos[0] * 100, pos[1]* 100, 100, 100), 2)
+        [pg.draw.rect(self.game.screen, 'white', (pos[0] * 100, pos[1] * 100, 100, 100), 2)
          for pos in self.world_map]
