@@ -27,6 +27,6 @@ class Map:
                     self.world_map[(xAxis,yAxis)] = value
 
     def draw(self):
-                # Rectangle attrb:(screen, color, pos x-axis, pos y-axis, length, width), thickness
+        # Rectangle attrb:(screen, color, pos x-axis, pos y-axis, length, width), thickness
         [pg.draw.rect(self.game.screen, 'white', (pos[0] * 100, pos[1] * 100, 100, 100), 2)
          for pos in self.world_map]
